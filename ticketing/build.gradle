@@ -29,15 +29,35 @@ ext {
 }
 
 dependencies {
+	// Spring Boot Data JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// Spring Boot JDBC
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	// Spring Boot web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// Spring Boot Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// Springdoc OpenAPI
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	// Log4j SLF4J Implementation
+	implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.2'
+
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	// mysql Database
+	implementation 'mysql:mysql-connector-java:8.0.32'
+
+	// Spring Boot Test Starter
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'org.mockito:mockito-core'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:mysql'
+	testImplementation 'org.awaitility:awaitility'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
